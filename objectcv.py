@@ -22,7 +22,7 @@ print(classnames)
 configpath = r"C:\Users\91738\Desktop\VS code all files\Open cv project\ssd_mobilenet_v3_large_coco_2020_01_14.pbtxt"
 weightspath = r"C:\Users\91738\Desktop\VS code all files\Open cv project\frozen_inference_graph.pb"
 
-# Load the pre-trained model
+# Load the pre-trained model from OpenCV documentation
 net = cv2.dnn_DetectionModel(weightspath, configpath)
 net.setInputSize(320, 320)
 net.setInputScale(1.0 / 127.5)
@@ -44,7 +44,7 @@ while True:
             # Draw bounding box and label
             cv2.rectangle(img, box, color=(0, 0, 255), thickness=2)
             cv2.putText(img, classnames[classId-1].upper(), (box[0] + 20, box[1] + 40),
-                        cv2.FONT_HERSHEY_SIMPLEX, 1, (255, 0, 0), 2)
+                        cv2.FONT_HERSHEY_SIMPLEX, 1, (255, 0, 0), 2) #display the bounding box in red colour and text in blue colour
 
     # Display the resulting frame
     cv2.imshow('Output', img)
